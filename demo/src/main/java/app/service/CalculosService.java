@@ -26,7 +26,7 @@ public class CalculosService {
 		
 	}
 	
-	private int somar(List<Integer> lista) {
+	public int somar(List<Integer> lista) {
 		
 		int soma = 0;
 		
