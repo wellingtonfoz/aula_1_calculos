@@ -2,14 +2,23 @@ package app.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Entrada;
 import app.entity.Resultado;
+import app.repository.CalculosRepository;
 
 @Service
 public class CalculosService {
 	
+	@Autowired
+	private CalculosRepository calculosRepository;
+	
+	
+	public List<Resultado> findAll(){
+		return this.calculosRepository.findAll();
+	}
 	
 	public Resultado calcular(Entrada entrada) {
 		
@@ -21,6 +30,8 @@ public class CalculosService {
 		
 		double media = this.media(entrada.getLista());
 		resultado.setMedia(media);
+		
+		resultado = this.calculosRepository.save(resultado);
 		
 		return resultado;
 		
@@ -39,7 +50,7 @@ public class CalculosService {
 	}
 	
 	private double media(List<Integer> lista) {
-		return this.somar(lista) / lista.size();
+		return (double) this.somar(lista) / lista.size();
 	}
 
 }

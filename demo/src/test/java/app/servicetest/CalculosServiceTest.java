@@ -17,6 +17,8 @@ public class CalculosServiceTest {
 	@Autowired
 	private CalculosService calculosService;
 	
+	
+	
 	@Test //JUNIT - indicação de método de teste
 	@DisplayName("Teste unitário - cenário de soma = 10")
 	void cenario01() {
@@ -31,6 +33,8 @@ public class CalculosServiceTest {
 		Assertions.assertEquals(10, soma); //JUNIT - verificações - teste em si
 		
 	}
+	
+	
 	
 	@Test //JUNIT - indicação de método de teste
 	@DisplayName("Teste unitário - cenário de erro")
@@ -47,4 +51,5 @@ public class CalculosServiceTest {
 		
 	}
 
+	
 }
